@@ -19,3 +19,5 @@ app.config(function($routeProvider, $locationProvider){
 		controller: 'cartController'
 	})
 })
+
+//digest-tree
