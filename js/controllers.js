@@ -3,7 +3,7 @@ app.controller("homeController", ['$scope', '$routeParams', '$http', 'Baggy', fu
 	$scope.cartNum = 0;
 	$scope.qty = "1";
 
-	$http.get('tea.json').then(function(data){
+	$http.get('js/tea.json').then(function(data){
 		$scope.data = data;
 	})
 
