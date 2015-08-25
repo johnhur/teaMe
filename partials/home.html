@@ -1,0 +1,80 @@
+<div class="container">
+<table class="table table-striped table-hover">
+<thead>
+	<tr>
+		<th>Search By Category: 
+		<select ng-model="option">
+			<option value=""></option>
+			<option value="dark">dark</option>
+			<option value="cold">cold</option>
+			<option value="awesome">awesome</option>
+			<option value="hot">hot</option>
+			<option value="summer">summer</option>
+			<option value="dry">dry</option>
+			<option value="lucid">lucid</option>
+			<option value="warm">warm</option>
+			<option value="winter">winter</option>
+		</select>
+		</th>
+		<th><input ng-model="search" style="max-width: 200px;" class="form-control" placeholder="Search Teas By Name"type="text"></th>
+
+		<th><a href="#/cart" class="btn btn-warning">Checkout <span class="glyphicon glyphicon-shopping-cart"></span> {{cartNum}}<ng-pluralize count="cartNum" when="{'0': '', '1': ' bag', 'other': ' bags'}"></ng-pluralize></a></th>
+	</tr>
+	<tr>
+		<th>Tea</th>
+		<th>Information</th>
+		<th>
+			Sort By Price: 
+			<select ng-model="select">
+				<option value="price">Lowest</option>
+				<option value="-price">Highest</option>
+			</select>
+		</th>
+	</tr>
+<thead>
+<tbody>
+	<tr ng-repeat="d in data.data | catty: option | filter: search | orderBy: select"> 
+<!-- 	need custom filter for filtering by category  -->
+		<th><img style="border-radius: 25px" ng-src="{{d.imageUrl}}"></th>
+		<th>
+			<div>
+				<h4>{{d.name}}</h4>
+				<br>
+				<span>Caffeine Scale: {{d.caffeineScale}}</span>
+				<br>
+				<span>Rating: {{d.rating}}</span>
+				<br>
+				<span>Price: {{d.price | cur}}</span>
+				<br>
+				<span>In Stock? {{d.inStock}}</span> 
+				<br>
+				<br>
+				<span>Ingredients: {{d.ingredients}}</span>
+				<br>
+				
+				<!-- Use ng-show tag here -->
+				Categories:
+					<span ng-repeat="c in d.categories">{{c}} </span> 
+			</div>
+		</th>
+		<th>
+				<span class="quant">
+					<select ng-model="qty">
+						<option selected="selected" value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+					<button ng-click="toBag()" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+				</span>
+		</th>
+	</tr>
+</tbody>
+</table>
+</div>
