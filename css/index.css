@@ -1,0 +1,36 @@
+/** {
+	text-align: left;
+	clear: both;
+}
+*/
+.navbar-default .navbar-brand {
+	color: #FFF;
+}
+
+.navbar-brand {
+	background-color: #559e83;
+	color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #FFF;
+    background-color: #559e83;
+}
+
+.navbar {
+	background-color: #559e83
+}
+.quant {
+	text-align: right;
+	clear: left;
+	margin-bottom: 175px;
+}
+
+#cbuttons{
+	text-align: right 
+	margin-left 200px;
+}

@@ -1,0 +1,41 @@
+<div class="container">
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th><h1>My Shopping Bag</h1></th>
+			<th><h1>Order Total: <span ng-show="total > 0">{{total | cur}}</span></h1></th>
+		</tr>
+		<tr>
+			<th>Product</th>
+			<th>Quantity</th>
+			<th>Sub-total</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="tea in bag track by $index">
+			<td>
+			<div>
+					<h3>{{tea.name}}</h3>
+					<img style="border-radius: 25px" ng-src="{{tea.imageUrl}}">
+					<p>price: {{tea.price | cur}}</p>
+					<p>Caffeine Scale: {{tea.caffeineScale}}</p>
+					<p>Ingredients: {{tea.ingredients}}</p>
+					<p>Rating: {{tea.rating}}</p>
+				</div>
+			</td>
+			<td ng-show="!tea.editTeaNum" class="quant" style="padding-right: 5px; float: left;">{{tea.quantity}}</td>
+			<td ng-show="tea.editTeaNum" style="padding-left:5px; padding-right:-5px;">
+				<input ng-model="newQ"style="max-width:40px; float: left;" type="number">
+			</td>
+
+			<td class="quant" style="padding-right: 5px;">{{tea.price * tea.quantity | cur}}</td>
+			<td class="cbuttons" style="padding-left:5px; padding-right:5px">
+				<p>
+				<button ng-show="!tea.editTeaNum" ng-click="editQ()" class="btn btn-warning cbuttons">Edit</button>
+				<button ng-show="tea.editTeaNum" ng-click="saveQ()" class="btn btn-info cbuttons">Save</button>
+				<button ng-click="removeTea()"class="btn btn-danger cbuttons">Remove</button></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
